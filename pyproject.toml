@@ -1,0 +1,31 @@
+[project]
+name = "farman"
+version = "0.1.0"
+description = "AI Agent Framework for DevOps — Jira-native automation"
+requires-python = ">=3.11"
+dependencies = [
+    "langgraph>=0.2",
+    "langchain-openai>=0.2",
+    "langchain-core>=0.3",
+    "langchain-google-genai>=2.0",
+    "langchain-groq>=0.2",
+    "pydantic>=2.0",
+    "pydantic-settings>=2.0",
+    "sqlmodel>=0.0.21",
+    "jira>=3.8",
+    "tenacity>=8.2",
+    "structlog>=24.0",
+    "python-dotenv>=1.0",
+    "pyyaml>=6.0",
+]
+
+[project.optional-dependencies]
+ansible = ["ansible-runner>=2.0"]
+dev = ["pytest", "pytest-mock"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["core", "config", "db", "integrations", "modules"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

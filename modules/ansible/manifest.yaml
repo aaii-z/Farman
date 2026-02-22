@@ -1,0 +1,34 @@
+name: ansible
+description: "Generates and optionally executes Ansible playbooks"
+trigger_labels:
+  - ansible
+
+risk_hints:
+  read_only:
+    - gather_facts
+    - setup
+    - debug
+    - assert
+  low:
+    - package
+    - apt
+    - yum
+    - dnf
+    - service
+    - template
+    - copy
+    - lineinfile
+    - file
+    - user
+  high:
+    - command
+    - shell
+    - raw
+    - reboot
+    - cron
+  destructive:
+    - delete
+    - remove
+    - purge
+    - destroy
+    - absent
